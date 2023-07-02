@@ -1,0 +1,26 @@
+version: '3'
+services:
+ mysql:
+  image: my-mysql-image
+  container_name: mysqldb
+  ports:
+   - 3307:3306
+  environment:
+   MYSQL_ROOT_PASSWORD: root
+   MYSQL_DATABASE: achatdb
+  volumes:
+   - ./data-db:/var/lib/mysql:rw
+  user: mysql
+ spring-app:
+  image: ratatouka/achat:latest
+  ports:
+   - 51000:8089
+  depends_on:
+   - mysql
+  environment:
+   MYSQL_HOST: mysqldb
+   SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/achatdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+   SPRING_DATASOURCE_USERNAME: root
+   SPRING_DATASOURCE_PASSWORD:
+volumes:
+ mysql_data:
