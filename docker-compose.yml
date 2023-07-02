@@ -1,7 +1,7 @@
 version: '3'
 services:
  mysql:
-  image: my-mysql-image
+  image: mysql:latest
   container_name: mysqldb
   ports:
    - 3307:3306
@@ -12,9 +12,9 @@ services:
    - ./data-db:/var/lib/mysql:rw
   user: mysql
  spring-app:
-  image: ratatouka/achat:latest
+  image: medalibm/achat:latest
   ports:
-   - 51000:8089
+   - 5100:8089
   depends_on:
    - mysql
   environment:
