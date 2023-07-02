@@ -69,7 +69,7 @@ pipeline {
 
                stage('push to DockerHub') {
                     steps{
-
+                        sh 'docker login -u "medalibm" -p "daliinfo2222+" docker.io'
                         sh """ docker push  medalibm/achat """
 
                     }
