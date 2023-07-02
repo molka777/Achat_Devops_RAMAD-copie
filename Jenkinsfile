@@ -7,7 +7,7 @@ pipeline {
         stage('git') {
             steps {
                 // Get some code from a GitHub repository
-                git branch: 'main', url:'https://github.com/molka777/Achat_Devops_RAMAD.git'
+                git branch: 'main', url:'https://github.com/molka777/Achat_Devops_RAMAD-copie.git'
 
             }
 
