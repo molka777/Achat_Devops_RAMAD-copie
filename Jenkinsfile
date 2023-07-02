@@ -62,7 +62,6 @@ pipeline {
                         script {
                                 sh """ docker build -t medalibm/achat ."""
 
-
                         }
                     }
                 }
@@ -72,6 +71,11 @@ pipeline {
                         sh 'docker login -u "medalibm" -p "daliinfo2222" docker.io'
                         sh """ docker push  medalibm/achat """
 
+                    }
+                }
+                 stage('Docker-compose up -d ') {
+                    steps{
+                        sh 'docker-compose up -d'
                     }
                 }
 
