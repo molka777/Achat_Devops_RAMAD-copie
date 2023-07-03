@@ -75,6 +75,7 @@ pipeline {
                 }
                  stage('Docker-compose up -d ') {
                     steps{
+                        git branch: 'Dali', url: 'https://github.com/molka777/Achat_Devops_RAMAD-copie.git'
                         sh 'docker-compose up -d'
                     }
                 }
